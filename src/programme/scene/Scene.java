@@ -1,4 +1,4 @@
-package programme;
+package programme.scene;
 
 import programme.items.Item;
 
@@ -7,7 +7,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Scene extends Canvas {
-    ArrayList<Item> items;
+    protected ArrayList<Item> items;
 
     public Scene() {
         super();
@@ -19,11 +19,16 @@ public class Scene extends Canvas {
     }
 
     public void draw() {
-        JFrame frame = new JFrame();
+        JFrame frame = drawFrameSetup();
         frame.add(this);
+    }
+
+    protected JFrame drawFrameSetup() {
+        JFrame frame = new JFrame();
         frame.setSize(500, 500);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        return frame;
     }
 
     @Override

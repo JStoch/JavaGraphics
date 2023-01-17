@@ -100,7 +100,27 @@ public abstract class Item {
         return bBox;
     };
 
+    public int getBoundingTop() {
+        return bBox.top();
+    }
+
+    public int getBoundingBottom() {
+        return bBox.bottom();
+    }
+
+    public int getBoundingLeft() {
+        return bBox.left();
+    }
+
+    public int getBoundingRight() {
+        return bBox.right();
+    }
+
     public abstract void draw(Graphics g);
+
+    public void drawBounding(Graphics g) {
+        g.drawRect(position.getX(), position.getY(), bBox.right()-bBox.left(), bBox.bottom()-bBox.top());
+    }
 
     public Point getPosition() {
         return position;
