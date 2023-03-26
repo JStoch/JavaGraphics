@@ -31,10 +31,12 @@ public class SelectiveScene extends SceneDecor {
         selected = new ArrayList();
     }
 
+    //returns an item given its index in the scene
     public Item getItem(int index) {
         return subject.items.get(index);
     }
 
+    //return the first item found at given location
     public Item getItem(Point inBoundsOfItem) throws NoSuchItem {
         for(int i = 0; i < subject.items.size(); i++) {
             if(isInBounds(inBoundsOfItem, subject.items.get(i))) {
@@ -44,6 +46,7 @@ public class SelectiveScene extends SceneDecor {
         throw new NoSuchItem("There is no item in the scene at this coordinates");
     }
 
+    //returns an array with all items at specified location
     public ArrayList<Item> getAllItems(Point inBoundsOfItem) {
         ArrayList<Item> foundItems = new ArrayList();
         for(int i = 0; i < subject.items.size(); i++) {
@@ -54,10 +57,12 @@ public class SelectiveScene extends SceneDecor {
         return foundItems;
     }
 
+    //selects an item, given its index in the scene
     public void selectItem(int index) {
          selected.add(subject.items.get(index));
     }
 
+    //selects the first found item at specified location
     public void selectItem(Point inBoundsOfItem) throws NoSuchItem {
         int i = 0;
         boolean found = false;
@@ -71,6 +76,7 @@ public class SelectiveScene extends SceneDecor {
         if (!found) throw new NoSuchItem("There is no item in the scene at this coordinates");
     }
 
+    //selects all items at specified location
     public void selectAllItems(Point inBoundsOfItem) {
         for(int i = 0; i < subject.items.size(); i++) {
             if(isInBounds(inBoundsOfItem, subject.items.get(i))) {
@@ -79,6 +85,7 @@ public class SelectiveScene extends SceneDecor {
         }
     }
 
+    //selects all items present in the scene
     public void selectAllItems() {
         for(int i = 0; i < subject.items.size(); i++) {
             selected.add(subject.items.get(i));
