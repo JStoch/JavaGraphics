@@ -24,16 +24,15 @@ public class ComplexItem extends Item{
         if(children.size() == 1) {
             bBox = new BoundingBox(new Point(child.bBox.left(), child.bBox.top()), new Point(child.bBox.right(),child.bBox.top()),
                     new Point(child.bBox.right(), child.bBox.bottom()), new Point(child.bBox.left(),child.bBox.bottom()));
+            position = child.getPosition();
         } else fixPositionAndBounding(child);
     }
-    //TODO what about removing children?
 
     @Override
     public void draw(Graphics g) {
-        for (Item child: children) {
+        for (Item child : children) {
             child.draw(g);
         }
-        g.drawRect(bBox.left(), bBox.top(), bBox.right() - bBox.left(), bBox.bottom() - bBox.top());
     }
 
     @Override

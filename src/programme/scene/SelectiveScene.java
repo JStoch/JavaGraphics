@@ -79,6 +79,12 @@ public class SelectiveScene extends SceneDecor {
         }
     }
 
+    public void selectAllItems() {
+        for(int i = 0; i < subject.items.size(); i++) {
+            selected.add(subject.items.get(i));
+        }
+    }
+
     private boolean isInBounds(Point inside, Item toCheck) {
         return inside.getY() >= toCheck.getBoundingTop() &&
                 inside.getY() <= toCheck.getBoundingBottom() &&
